@@ -3,6 +3,12 @@ const $exampleText = $('#example-text');
 const $exampleDescription = $('#example-description');
 const $submitBtn = $('#submit');
 const $exampleList = $('#example-list');
+const $emojiValue = $('#emoji');
+
+const editText = document.getElementById('editText');
+const editDescription = document.getElementById('editDescription');
+const editEmoji = document.getElementById('editEmoji');
+
 
 // The API object contains methods for each kind of request we'll make
 const API = {
@@ -22,6 +28,18 @@ const API = {
       type: 'GET'
     });
   },
+  editDream: function (id) {
+    return $.ajax({
+      url: 'api/example/' + id,
+      type: 'PUT',
+
+      data: {
+        "text":editText.innerHTML, 
+        "description":editDescription.innerHTML,
+        "emoji":editEmoji.innerHTML,
+      }
+    });
+  }, 
   deleteExample: function (id) {
     return $.ajax({
       url: 'api/examples/' + id,
@@ -34,22 +52,84 @@ const API = {
 const refreshExamples = function () {
   API.getExamples().then(function (data) {
     const $examples = data.map(function (example) {
-      const $a = $('<a>')
-        .text(example.text)
-        .attr('href', '/example/' + example.id);
+      var createdAttime = moment.utc(example.createdAt).format("MM/DD/YYYY");
+      const $a = $('<a class="pastjournalentrymarker">')
+        .text(createdAttime + " " + example.text + " " + example.emoji)
 
-      const $li = $('<li>')
+        
+        const $li = $('<li>')
         .attr({
           class: 'list-group-item',
           'data-id': example.id
         })
         .append($a);
+        
+        // delete button
+        const $deletebutton = $('<button>')
+        .addClass('btn btn-dark float-right delete')
+        .html('<i class="fa-solid fa-trash-can"></i>');
+        $li.append($deletebutton);
 
-      const $button = $('<button>')
-        .addClass('btn btn-danger float-right delete')
-        .text('ｘ');
+        // // edit button
+        // const $editbutton = $('<button>')
+        // .addClass('btn btn-dark float-right editDream editbuttonspace')
+        // .html('<i class="fa-solid fa-pencil"></i>')
+        // .attr('disabled')
+        // $li.append($editbutton);
 
-      $li.append($button);
+        // expand button
+        const $expandbutton = $('<a>')
+        .html('<i class="fa-solid fa-expand"></i>')
+        .attr({
+          class: 'btn btn-dark text-white pastjournalentrymarker float-right',
+          "href": '/example/' + example.id});
+      $li.append($expandbutton);
+
+      //     // line break
+      // const $linebreak = $('<br>')
+      // $li.append($linebreak)
+
+      //     // dream name section 
+      // const $dreamname = $('<strong>')
+      // .text('Dream Name:')
+
+      // $li.append($dreamname)
+
+      // const $dreamnameresult = $('<p>')
+      //     .attr({
+      //       'contenteditable': 'true',
+      //       'id': 'editText'
+      //     })
+      //     .text(example.text)
+      // $li.append($dreamnameresult)
+
+      //     // Description
+      //     const $dreamdescription = $('<strong>')
+      //     .text('Description:')
+    
+      //     $li.append($dreamdescription)
+    
+      //     const $dreamdescriptionresult = $('<p>')
+      //         .attr({
+      //           'contenteditable': 'true',
+      //           'id': 'editDescription'
+      //         })
+      //         .text(example.description)
+      //     $li.append($dreamdescriptionresult)
+
+      //      // How are you feeling
+      //      const $dreamfeeling = $('<strong>')
+      //      .text('How you were feeling:')
+     
+      //      $li.append($dreamfeeling)
+     
+      //      const $dreamfeelingresult = $('<p>')
+      //          .attr({
+      //            'contenteditable': 'true',
+      //            'id': 'editEmoji'
+      //          })
+      //          .text(example.emoji)
+      //      $li.append($dreamfeelingresult)     
 
       return $li;
     });
@@ -67,6 +147,7 @@ const handleFormSubmit = function (event) {
   const example = {
     text: $exampleText.val().trim(),
     description: $exampleDescription.val().trim(),
+    emoji: $emojiValue.val().trim(),
     UserId: window.userId
   };
 
@@ -81,6 +162,15 @@ const handleFormSubmit = function (event) {
 
   $exampleText.val('');
   $exampleDescription.val('');
+  $emojiValue.val('');
+};
+
+const handleEditBtnClick = function () {
+  const idToEdit = $(this).parent().attr('data-id');
+
+  API.editDream(idToEdit).then(function () {
+    refreshExamples();
+  });
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -95,4 +185,5 @@ const handleDeleteBtnClick = function () {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on('click', handleFormSubmit);
+$exampleList.on('click', '.editDream', handleEditBtnClick);
 $exampleList.on('click', '.delete', handleDeleteBtnClick);

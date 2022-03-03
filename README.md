@@ -1,69 +1,78 @@
 # Dream-Journal
-This application assists a user in recording their dreams 
 
-# MVP Project Requirements
+This application assists a user in recording their dreams
 
-* Use Node.js and Express.js to create a RESTful API.
-* Use Handlebars.js as the templating engine.
-* Use MySQL and the Sequelize ORM for the database.
-* Have both GET and POST routes for retrieving and adding new data.
-* Be deployed using Heroku (with data).
-* Use at least one new library, package, or technology that we haven’t discussed.
-* Have a polished UI.
-* Be responsive.
-* Be interactive (i.e., accept and respond to user input).
-* Have a folder structure that meets the MVC paradigm.
-* Include authentication (express-session and cookies).
-* Protect API keys and sensitive information with environment variables.
-* Have a clean repository that meets quality coding standards (file structure, * * naming conventions, best practices for class/id naming conventions, indentation, quality comments, etc.).
-* Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-* Finally, you must add your project to the portfolio that you created in Module 2.
+## Collaborators:
 
-# Use at least one new library, package, or technology that we haven’t discussed.
-* Secure Access: 
-1. https://auth0.com/
-2. https://cognitohq.com/?gclid=Cj0KCQiA3rKQBhCNARIsACUEW_Z-oyOjbi3tJ_mJhJp_i2gsk8uLq9-f3dFCfHQekHB6f82jS8d7w0EaAjTLEALw_wcB
-3. https://www.passportjs.org/
+Dani Reinholz, Wesley Bryant, Alan M Do, Jonny Martin
 
-* Word search NPM: https://www.npmjs.com/package/word-researcher
+## Table of Contents
 
-# Example Applications
-* Example website: https://wakefully.io/
-* Example database: http://www.dreammoods.com/dreamdictionary/g.htm
-* Example benefits of journal: https://penzu.com/dream-journal
-* Examples of journaling apps: https://www.lifewire.com/best-journal-apps-4175848
+- [Technologies Used](#technologies-used)
+- [User Story](#user-story)
+- [New Tech Used by Group](#new-tech-used-by-group)
+- [Link to live site](#link-to-live-site)
+- [Milestones](#milestones)
+- [Challenges](#challenges)
+- [Future Development](#future-development)
+- [Slides Deck](#slides-deck)
 
-# Example Journal Entry Questions
-* What is your personal weather status (cloudy, foggy, sunny breaks etc)?
-* What emotions am I feeling right now?
-* Important dream details
+## Technologies Used
 
-[![Build Status](https://travis-ci.com/alperg/project2-starter-auth.svg?branch=master)](https://travis-ci.com/alperg/project2-starter-auth)
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+- Express
+- Sequelize
+- Passport
+- Moment.js
+- Bcrypt
+- Dotenv
+- Cookie-Parser
 
-# Project 2 Starter with Auth
+## User Story
 
-A simple starter project with Express, Handlebars, Sequelize, Passport and Local Auth.
+1. As a User, I want a secure way to record and track my dreams over time to see if there are any patterns or mysteries revealed.
+2. When I click Add Journal Entry I would like to be prompted with questions like how I'm feeling, the title of the dream, and place to enter a full description.
+3. When I submit an entry I would like for a date tag to be added along with the title and emoji to past entries for later reference.
+4. When I click on a past journal entry I would like to see the full dream details.
 
-## Example Starter code Live link:
-https://project2-starter-auth.herokuapp.com/
+## New Tech Used by Group
 
-## Requirements:
+- Cloudinary for save and using large images
+- https://www.canva.com/ for color pallette in deciding page styling
 
-* Add `.env` file with the following content:
+## Link to live site
 
-```
-SEQUELIZE_USER=your_mysql_db_user
-SEQUELIZE_PASSWORD=your_mysql_db_password
-SEQUELIZE_HOST=your_mysql_db_host
-AUTH_SECRET=your_auth_secret_key
-ADMIN_USER_PWD=admin_password
-USER_PWD=user_pwd
-FORCE_SYNC=true_or_false
-TU=mysql_user
-TP=mysql_password
-```
-
-## Our Project Live Link: 
 https://frozen-atoll-87689.herokuapp.com/
 
+<a href="https://frozen-atoll-87689.herokuapp.com/">
+<img src="./images/dreamjournal.jpg" alt="Dream Journal" page title">
+</a>
 
+## Milestones
+
+1. Dani established CSS styling, routed emojis, captured and converted timestamps, added hamburger menu display, added favicon.
+2. Wesley wrote the initial front end display for emoji selection and adding edit function to journal post.
+3. Alan added font and styling to laptop, tablet, and mobile display.
+4. Jonny added styling including the dream on button for journal entry submissions.
+
+## Challenges
+
+- Capturing / converting timestamps
+- Hamburger menu display
+- Shortening code for favicon
+- Mobile responsiveness on multiple screen sizes
+- Edit function for journal post
+
+## Future Development
+
+- Dream interpretation library
+- Add images to interpretation library
+- Auto search database library based on dream entry
+- Community forum where users can share dream entries and comment on others
+
+## Slides Deck:
+
+https://docs.google.com/presentation/d/1Ij4jv1d8xdbHxyuyYKg2ZEDAgE2HcYcn08e-4G9azLU/edit?usp=sharing

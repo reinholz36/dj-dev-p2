@@ -1,20 +1,32 @@
 body {
   background-image: url(https://res.cloudinary.com/dlogu18ac/image/upload/v1645721194/aurora_tzh1an.jpg);
-    background-size: cover;
-    background-attachment:fixed;
-    background-position: 80%;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: 80%;
+}
+
+.topnav {
+  list-style: none;
+}
+
+.font-utility {
+  font-size: 2rem;
+}
+
+.secondary-font-utility {
+  font-size: 1rem;
 }
 
 .hero {
-  margin: 6rem 6rem 0 6rem;
+  margin: 3rem 1rem 0 1rem;
   padding: 2rem;
 }
 
 .jumbotron {
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
 }
 
-.spacing{
+.spacing {
   margin: 6rem;
 }
 
@@ -22,13 +34,37 @@ body {
   color: black;
 }
 
-/* .btn {
-  color:white;
-  background:#cadde1;
-  border: 1px solid white;
-} */
+.signup {
+  text-decoration: none;
+  font-size: large;
+  color: cornflowerblue;
+  font-weight: bold;
+}
 
-#user-form, .header-wrap, #create-form, .create-user-wrap {
+.pastjournalentrymarker {
+  text-decoration: none;
+  text-align: center;
+  padding-right: .75rem;
+  color: #444;
+  margin-right: 2rem;
+}
+
+.editbuttonspace {
+  margin-right: 2rem;
+}
+.quotespacing {
+  padding-left: 2%;
+}
+
+.borderonentryq {
+  border-radius: .25rem;
+}
+
+
+#user-form,
+.header-wrap,
+#create-form,
+.create-user-wrap {
   padding: 20px;
   border-radius: 15px;
   margin: 20px 0;
@@ -37,22 +73,22 @@ body {
 #update-err-msg,
 #login-err-msg,
 #create-err-msg {
-  color: red !important;
+  color: yellow !important;
 }
 
 #go-home {
- width: auto;
- height: 65px;
+  width: auto;
+  height: 65px;
 }
 
 .container {
   padding-bottom: 2%;
   margin-top: 10%;
-  background: rgba(86, 101, 115,.6);
-  height:100%;
-  border-radius: .25rem;
+  background: rgba(86, 101, 115, 0.6);
+  height: 100%;
+  border-radius: 0.25rem;
   margin-bottom: 2%;
-  width: 600px;
+  width: 100vw;
 }
 
 [data-useremail="true"] {
@@ -67,7 +103,8 @@ body {
   font-weight: 500;
 }
 
-.userId h2, .header-wrap h1 {
+.userId h2,
+.header-wrap h1 {
   text-transform: capitalize;
 }
 
@@ -81,4 +118,61 @@ hr {
 
 .card-body {
   color: #444;
+}
+
+/* Test CSS for emojis */
+.dropbtn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+
+.msg-margin {
+  margin-top: 0.5rem;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 574px) {
+  .font-utility {
+    font-size: 1.5rem;
+  }
+  .secondary-font-utility {
+    font-size: 1rem;
+  }
 }
