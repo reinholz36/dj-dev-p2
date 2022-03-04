@@ -4,7 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="msg-margin text-center">{{msg}}</h2>
+        <h2 class="msg-margin text-center text-white">{{msg}}</h2>
         <form class="clearfix mb-4" action="POST">
 
           <div class="form-group">
@@ -33,32 +33,20 @@
             <br>
           <button id="submit" class="btn btn-dark float-right" >Dream On &#129304</button>
         </form>
-        <h4 class="text-center"> Past Journal Entries:</h4>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           
           <li data-id="{{this.id}}" class="list-group-item">
-            
               
-                {{format_date this.createdAt}} 
+                
                 
                   <button class="btn btn-dark float-right delete"><i class="fa-solid fa-trash-can"></i></button>
 
-                  <button class="btn btn-dark float-right editDream editbuttonspace"><i class="fa-solid fa-pencil"></i></button>
-
-            <a class="btn btn-dark text-white pastjournalentrymarker float-right" href="example/{{this.id}}"><i class="fa-solid fa-expand"></i>
-            </a>
-            <br>  
-             
-                
-                  <strong>Dream Name:</strong> 
-                  <p contenteditable="true" id="editText">{{this.text}}</p> 
-                  <strong>Description:</strong>
-                  <p contenteditable="true" id="editDescription">{{this.description}}</p>
-                  <strong>How you were feeling:</strong>
-                  <p contenteditable="true" id="editEmoji">{{this.emoji}}</p>
-        
-                
+            <a class="pastjournalentrymarker" href="example/{{this.id}}">
+            {{format_date this.createdAt}} 
+            {{this.text}} 
+            {{this.emoji}}
+            </a>                
           </li>
           {{/each}}
         </ul>

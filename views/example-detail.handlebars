@@ -5,30 +5,49 @@
     <div class="col-12">
       <div class="card mt-4">
         <div class="card-body">
-          <h5 class="card-title">{{format_date example.createdAt}}</h5>
-          {{!-- <p>
-            <strong>Entry ID:</strong> 
-            {{example.id}}
-          </p> --}}
+          <h5 class="card-title text-center">{{format_date example.createdAt}}</h5>
+    
+          <ul id="detail-example-list" class="list-group">
           
-          <p>
-            <strong>Dream name:</strong> 
-            {{example.text}}
-          </p>
-          <p>
-            <strong>Description:</strong> 
-            {{example.description}}
-          </p>
-          <p>
-            <strong>How you were feeling:</strong> 
-            {{example.emoji}}
-          </p>
-            <a href="/example">← Back To Journal</a>
+            
+            <li data-id="{{example.id}}" class="list-group-item">
+                    <strong>Dream Name:</strong> 
+                    <p contenteditable="true" id="editText">{{example.text}}</p> 
+                    <strong>Description:</strong>
+                    <p contenteditable="true" id="editDescription">{{example.description}}</p>
+                    <strong>How you were feeling:</strong> --}}
+                    <p contenteditable="true" id="editEmoji">{{example.emoji}}</p>
+                    <footer class="blockquote-footer">Copy/Paste emoji into edit field 😎 😄 🥰 😐 😥 😡 💩 ☠️</footer>
+              {{!-- <form class="clearfix mb-4" action="PUT">
+              <label for="editEmoji">How are you feeling? </label>
+              <br>
+              <select id="editEmoji" class="form-select form-select-lg mb-3 borderonentryq" aria-label=".form-select-lg example">
+                <option selected>{{example.emoji}}</option>
+                <option value="😎">😎</option>
+                <option value="😄">😄</option>
+                <option value="🥰">🥰</option>
+                <option value="😐">😐</option>
+                <option value="😥">😥</option>
+                <option value="😡">😡</option>
+                <option value="💩">💩</option>
+                <option value="☠️">☠️</option>
+              </select>
+              </form> --}}
+           
+                  <br>
+                    <button class="btn btn-dark editDream editbuttonspace">Save Edit</button>
+            <a href="/example" class="btn btn-dark float-left">← Back To Journal</a>
+            </li>
+            
+          </ul>
+
         </div>
       </div>
     </div>
   </div>
 </div>
 
+
+<script src="/assets/js/example.js"></script>
 {{> modal/login-block}}
 
